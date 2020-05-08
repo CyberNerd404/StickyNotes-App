@@ -1,6 +1,7 @@
 # StickyNotes-App
 **Sticky Notes** is an Android application 📱 using Realm Database. Developed by CyberNerd. 
 ⍟ Offline Application no need to connect with the Internet
+**Quick Snippet Application for Daily Task**
 
 
 ## support our work and do Star this Repository Or Fork this Repository
