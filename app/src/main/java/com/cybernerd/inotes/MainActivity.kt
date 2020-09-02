@@ -41,7 +41,6 @@ class MainActivity : AppCompatActivity() {
 
     private fun getAllNotes() {
 //        notesList.clear()
-
         notesList = ArrayList()
 
         val result: RealmResults<Notes> = realm.where<Notes>(Notes::class.java).findAll()
