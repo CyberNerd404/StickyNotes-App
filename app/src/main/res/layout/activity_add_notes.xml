@@ -9,10 +9,11 @@
     android:layout_height="match_parent"
     tools:context=".AddNotesActivity">
 
+
     <EditText
         android:id="@+id/titleEditText"
         android:layout_width="300dp"
-        android:layout_height="50dp"
+        android:layout_height="80dp"
         android:layout_margin="10dp"
         android:fontFamily="@font/futurabook"
         android:hint="Title "
@@ -22,7 +23,7 @@
     <EditText
         android:id="@+id/descriptionEditText"
         android:layout_width="300dp"
-        android:layout_height="50dp"
+        android:layout_height="80dp"
         android:layout_margin="10dp"
         android:fontFamily="@font/futurabook"
         android:hint="If God is a programmer then there is no confusion Devil is a hacker "
@@ -34,7 +35,7 @@
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_margin="10dp"
-        android:background="@color/colorAccent"
+        android:background="@drawable/round_corner_background"
         android:text="Save Notes"
         android:textColor="#ffffff"
          />
