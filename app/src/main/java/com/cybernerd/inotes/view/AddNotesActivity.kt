@@ -2,60 +2,88 @@
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
-import android.widget.EditText
 import com.cybernerd.inotes.R
 import com.cybernerd.inotes.database.AppDatabase
-import com.cybernerd.inotes.database.NoteEntity
+import com.cybernerd.inotes.utils.CallbackListener
 import com.cybernerd.inotes.utils.showToast
-import io.realm.Realm
+import com.cybernerd.inotes.viewModel.AddNotesViewModel
+import kotlinx.android.synthetic.main.activity_add_notes.*
 import kotlinx.coroutines.launch
 
- class AddNotesActivity : BaseActivity() {
+ class AddNotesActivity : BaseActivity(), CallbackListener {
 
-     private lateinit var title:EditText
-     private lateinit var description:EditText
      private lateinit var saveNotesBtn:Button
-     private lateinit var realm: Realm
-
      lateinit var mydatabase: AppDatabase
-     var noteIndex = 0
+     private val viewModel: AddNotesViewModel by lazy {
+         AddNotesViewModel(this)
+     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_notes)
 
+        val intent = intent.extras
+
+        val id = intent?.getInt("id", 0)
+
+        if (id != null){
+           editNote(id)
+        }
+
         mydatabase = AppDatabase.invoke(this)
 
-        realm = Realm.getDefaultInstance()
-        title = findViewById(R.id.titleEditText)
-        description = findViewById(R.id.descriptionEditText)
+
         saveNotesBtn = findViewById(R.id.saveNotesBtn)
 
         saveNotesBtn.setOnClickListener {
 
-            AddNotes()
+            if (id != null){
+                viewModel.editNoteDB(id,titleEditText.text.toString(), descriptionEditText.text.toString(), this)
+            }else if (titleEditText.text.isEmpty() and descriptionEditText.text.isEmpty()){
+                showToast(this, "Please add title and description")
+            }else{
+                viewModel.addNoteDB(titleEditText.text.toString(), descriptionEditText.text.toString(), this)
+            }
+
+        }
+
+        deleteNotesBtn.setOnClickListener {
+            if (id != null) {
+                viewModel.deleteNodeDB(id, this)
+            }
         }
 
     }
 
-     private fun AddNotes() {
-         launch {
-
-             val data = mydatabase.noteDao().getNotes()
-
-
-             val notes = NoteEntity()
-             notes.title = title.text.toString()
-             notes.description = description.text.toString()
-             notes.id = data.size + 1
-
-             mydatabase.noteDao().insertNote(notes)
-             showToast(this@AddNotesActivity, "Notes Added Successfully")
-             val intent = Intent(this@AddNotesActivity, MainActivity::class.java)
-             startActivity(intent)
-             finish()
+     override fun callback(finish: Boolean) {
+         if (finish) {
+             Intent(this, MainActivity::class.java).apply {
+                 this.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+                 startActivity(this)
+             }
          }
      }
+
+     private fun editNote(id: Int){
+         launch {
+             val data = mydatabase.noteDao().getNote(id)
+             titleEditText.setText(data.title)
+             descriptionEditText.setText(data.description)
+             deleteNotesBtn.visibility = View.VISIBLE
+         }
+     }
+
+     override fun onBackPressed() {
+         super.onBackPressed()
+         Intent(this, MainActivity::class.java).apply {
+             this.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+             startActivity(this)
+         }
+     }
+
+
+
 
  }

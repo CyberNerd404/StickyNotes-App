@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFC107"
+    android:background="@color/appBackground"
     tools:context=".view.MainActivity">
 
     <androidx.recyclerview.widget.RecyclerView
@@ -21,18 +21,21 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:listitem="@layout/notes_rv_layout"
-        app:layout_constraintVertical_bias="0.0" />
+        tools:listitem="@layout/notes_rv_layout" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/addNotes"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginEnd="31dp"
         android:layout_marginBottom="34dp"
-        android:src="@drawable/ic_add_black_24dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:backgroundTintMode="@color/colorPrimary"
+        app:tint="@color/white"
+        android:src="@drawable/ic_add_black_24dp"
+        app:fabSize="normal"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:contentDescription="Add">
 
     </com.google.android.material.floatingactionbutton.FloatingActionButton>
 

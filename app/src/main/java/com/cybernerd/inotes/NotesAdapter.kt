@@ -10,12 +10,17 @@ import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.cybernerd.inotes.database.NoteEntity
 import com.cybernerd.inotes.utils.clickListeners
-import io.realm.Realm
-import io.realm.RealmResults
 import kotlinx.android.synthetic.main.notes_rv_layout.view.*
 
-class NotesAdapter (private val context: Context, private val notesList : List<NoteEntity>, val clickListeners: clickListeners)
+class NotesAdapter (private val context: Context, val clickListeners: clickListeners)
     : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
+    var list: List<NoteEntity> = arrayListOf()
+
+    fun setNotes(list: List<NoteEntity>){
+        this.list = list
+        notifyDataSetChanged()
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
 
         val v = LayoutInflater.from(parent.context).inflate(R.layout.notes_rv_layout, parent, false)
@@ -23,18 +28,18 @@ class NotesAdapter (private val context: Context, private val notesList : List<N
     }
 
     override fun getItemCount(): Int {
-        return notesList.size
+        return list.size
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
 
-        holder.itemView.titleTextView.text = notesList[position]!!.title
-        holder.itemView.descriptionTextView.text = notesList[position]!!.description
-        holder.itemView.idTextView.text = notesList[position]!!.id.toString()
+        holder.itemView.titleTextView.text = list[position]!!.title
+        holder.itemView.descriptionTextView.text = list[position]!!.description
 
         holder.itemView.setOnClickListener {
-            clickListeners.noteClickListener(notesList[position])
+            clickListeners.noteClickListener(list[position])
         }
+
 
     }
 
@@ -43,7 +48,6 @@ class NotesAdapter (private val context: Context, private val notesList : List<N
 
         val title = itemView.findViewById<TextView>(R.id.titleTextView)
         val description = itemView.findViewById<TextView>(R.id.descriptionTextView)
-        val id = itemView.findViewById<TextView>(R.id.idTextView)
         val cardView = itemView.findViewById<CardView>(R.id.cardNotes)
 
     }

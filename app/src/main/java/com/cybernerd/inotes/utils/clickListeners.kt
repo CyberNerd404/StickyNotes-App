@@ -7,4 +7,5 @@ interface clickListeners {
     fun noteClickListener(
         note: NoteEntity
     )
+
 }

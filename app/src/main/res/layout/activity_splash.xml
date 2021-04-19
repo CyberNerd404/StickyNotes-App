@@ -4,22 +4,41 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFC107"
+    android:background="#353432"
     tools:context=".view.SplashActivity">
 
     <TextView
+        android:id="@+id/appTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:text="CyberNerd404"
+        android:text="iNotes"
         android:textSize="30sp"
         android:textAlignment="center"
+        android:textColor="#F43636"
         android:textStyle="bold"
-        android:fontFamily="@font/seasrnfont"
+        android:fontFamily="@font/roboto"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="by CyberNerd404 "
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        android:textAlignment="center"
+        android:textStyle="italic"
+        android:fontFamily="@font/roboto"
+        app:layout_constraintTop_toBottomOf="@id/appTitle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

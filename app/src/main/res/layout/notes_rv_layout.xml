@@ -3,25 +3,27 @@
     android:layout_width="180dp"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardCornerRadius="10dp"
+    app:cardCornerRadius="20dp"
     app:cardElevation="2dp"
+    android:background="@color/colorPrimary"
     android:layout_margin="10dp"
     android:orientation="vertical"
     android:id="@+id/cardNotes">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:background="#000000"
+        android:background="@drawable/round_corner_background"
         android:layout_height="wrap_content">
 
         <TextView
             android:id="@+id/titleTextView"
-            android:layout_width="147dp"
+            android:layout_width="match_parent"
             android:layout_height="102dp"
             android:layout_marginTop="6dp"
-            android:fontFamily="@font/futuraheavy"
+            android:fontFamily="@font/roboto"
             android:padding="10dp"
             android:text="CyberNerd404"
+            android:textStyle="bold"
             android:textColor="#ffffff"
             android:textSize="24sp"
             app:layout_constraintStart_toStartOf="parent"
@@ -29,10 +31,10 @@
 
         <TextView
             android:id="@+id/descriptionTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="178dp"
+            android:layout_height="169dp"
             android:layout_marginTop="108dp"
-            android:fontFamily="@font/futuraheavy"
+            android:fontFamily="@font/roboto"
             android:padding="10dp"
             android:text="If God is a programmer then there is no confusion Devil is a hacker."
             android:textColor="#ffffff"
@@ -40,20 +42,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/idTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="148dp"
-            android:layout_marginEnd="10dp"
-            android:fontFamily="@font/futuraheavy"
-            android:padding="10dp"
-            android:text="1"
-            android:textColor="#F44336"
-            android:textSize="28sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

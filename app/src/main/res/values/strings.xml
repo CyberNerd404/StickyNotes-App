@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">CyberNotes</string>
+    <string name="title">Title</string>
+    <string name="description_if_god_is_a_programmer_then_there_is_no_confusion_devil_is_a_hacker">Description : If God is a programmer then there is no confusion Devil is a hacker</string>
+    <string name="save_notes">Save Notes</string>
+    <string name="delete_notes">Delete Notes</string>
 </resources>

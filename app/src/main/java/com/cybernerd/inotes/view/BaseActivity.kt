@@ -14,7 +14,6 @@ open class BaseActivity: AppCompatActivity(), CoroutineScope {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         job = Job()
 
     }

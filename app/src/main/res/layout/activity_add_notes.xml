@@ -1,68 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/appBackground"
     tools:context=".view.AddNotesActivity">
 
     <TextView
         android:id="@+id/appTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="iNotes"
-        android:textStyle="bold"
-        android:textAlignment="center"
-        android:textSize="24sp"
         android:layout_margin="15dp"
-        android:fontFamily="@font/seasrnfont"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:fontFamily="@font/roboto"
+        android:text="iNotes"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
     <EditText
         android:id="@+id/titleEditText"
         android:layout_width="match_parent"
         android:layout_height="80dp"
-        android:fontFamily="@font/futurabook"
-        android:layout_marginTop="20dp"
         android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="10dp"
-        android:hint="Title "
+        android:fontFamily="@font/roboto"
+        android:hint="@string/title"
         android:padding="10dp"
-        app:layout_constraintTop_toBottomOf="@id/appTitle"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
         app:layout_constraintStart_toStartOf="parent"
-
-        />
+        app:layout_constraintTop_toBottomOf="@id/appTitle" />
 
     <EditText
         android:id="@+id/descriptionEditText"
         android:layout_width="match_parent"
         android:layout_height="400dp"
-        android:layout_marginTop="20dp"
         android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="10dp"
-        android:fontFamily="@font/futurabook"
-        android:hint="Description : If God is a programmer then there is no confusion Devil is a hacker "
+        android:fontFamily="@font/roboto"
+        android:hint="@string/description_if_god_is_a_programmer_then_there_is_no_confusion_devil_is_a_hacker"
         android:padding="10dp"
-        app:layout_constraintTop_toBottomOf="@id/titleEditText"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
         app:layout_constraintStart_toStartOf="parent"
-        />
+        app:layout_constraintTop_toBottomOf="@id/titleEditText" />
+
+    <Button
+        android:id="@+id/deleteNotesBtn"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_margin="10dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/round_corner_background_red"
+        android:text="@string/delete_notes"
+        android:textColor="@color/white"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@id/saveNotesBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/saveNotesBtn"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_margin="10dp"
-        android:background="@drawable/round_corner_background"
-        android:text="Save Notes"
-        android:textColor="#ffffff"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginBottom="20dp"
+        android:background="@drawable/round_corner_background"
+        android:text="@string/save_notes"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
-         />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
