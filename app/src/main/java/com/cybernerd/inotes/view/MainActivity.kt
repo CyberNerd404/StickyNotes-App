@@ -2,6 +2,7 @@ package com.cybernerd.inotes.view
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
@@ -55,7 +56,12 @@ class MainActivity : BaseActivity(), clickListeners {
 
     private fun getAllNotes() {
         viewModel.noteData.observe(this, Observer {
-            notesAdapter.setNotes(it)
+            if (it.isEmpty()){
+                welcomeCardView.visibility = View.VISIBLE
+            }else{
+                notesRV.visibility = View.VISIBLE
+                notesAdapter.setNotes(it)
+            }
         })
     }
 

@@ -4,4 +4,8 @@
     <string name="description_if_god_is_a_programmer_then_there_is_no_confusion_devil_is_a_hacker">Description : If God is a programmer then there is no confusion Devil is a hacker</string>
     <string name="save_notes">Save Notes</string>
     <string name="delete_notes">Delete Notes</string>
+    <string name="welcome_text">CyberNotes is developed by CyberNerd404 ❤️</string>
+    <string name="init_text">CyberNotes is an Offline note saving app, No need to save data in the cloud.</string>
+    <string name="description">If God is a programmer then there is no confusion Devil is a hacker.</string>
+    <string name="advantage_text">If you are connected to the internet 24/7 then you are in Cyber Attack 24/7.</string>
 </resources>
